@@ -50,7 +50,6 @@ const testimonials = [
       <div class="hero-aura absolute inset-0 -z-10"></div>
       <div class="mx-auto grid min-h-[660px] max-w-7xl items-center gap-12 px-5 py-16 sm:px-8 lg:grid-cols-[1.05fr_.95fr] lg:py-20">
         <div class="max-w-2xl">
-          <p class="mb-6 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.19em] text-gold-light"><span class="h-px w-8 bg-gold"></span> Paranavaí · atendimento com hora marcada</p>
           <h1 class="max-w-[10ch] font-display text-[clamp(3.4rem,8vw,7rem)] font-medium leading-[.82] tracking-[-0.035em] text-white"><span class="hero-word" style="--delay:90ms">O seu</span><span class="hero-word text-gold-light italic" style="--delay:180ms">bronze</span><span class="hero-word" style="--delay:270ms">começa aqui.</span></h1>
           <p class="mt-8 max-w-lg text-base leading-8 text-white/70 sm:text-lg">Um bronze natural, uniforme e pensado para realçar o que você já tem de bonito — com cuidado em cada etapa.</p>
           <div class="mt-9 flex flex-wrap items-center gap-4"><a href={book()} target="_blank" rel="noreferrer" class="button-gold">Agendar pelo WhatsApp <ArrowUpRight size={17} aria-hidden="true" /></a><a href="#sessoes" class="button-quiet">Conhecer sessões</a></div>
@@ -59,12 +58,25 @@ const testimonials = [
         <figure class="relative mx-auto w-full max-w-[500px] lg:justify-self-end">
           <div class="absolute -inset-5 border border-gold/30 [clip-path:polygon(14%_0,100%_0,100%_86%,86%_100%,0_100%,0_14%)]"></div>
           <img src="/images/Cliente_1.webp" alt="Resultado de bronzeamento da Mariana Barbosa" width="740" height="986" fetchpriority="high" decoding="async" class="relative aspect-[4/5] w-full object-cover [clip-path:polygon(8%_0,100%_0,100%_92%,92%_100%,0_100%,0_8%)]" />
-          <figcaption class="absolute -bottom-7 -left-3 max-w-[230px] border border-gold/30 bg-ink p-5 shadow-[0_18px_40px_rgba(0,0,0,.3)] sm:-left-8"><span class="font-display text-2xl italic text-gold-light">Do seu jeito</span><p class="mt-1 text-xs leading-5 text-white/65">Orientação para você escolher a sessão certa.</p></figcaption>
+          <figcaption class="absolute -bottom-7 -left-3 max-w-[230px] bg-ink p-5 shadow-[0_18px_40px_rgba(0,0,0,.3)] sm:-left-8"><span class="font-display text-2xl italic text-gold-light">Do seu jeito</span><p class="mt-1 text-xs leading-5 text-white/75">Orientação para você escolher a sessão certa.</p></figcaption>
         </figure>
       </div>
     </section>
 
-    <section class="border-b border-white/10 bg-ink-soft py-20 sm:py-28"><div class="mx-auto grid max-w-7xl items-start gap-12 px-5 sm:px-8 lg:grid-cols-[.72fr_1.28fr]"><h2 class="font-display text-5xl leading-[.9] tracking-[-0.03em] text-white sm:text-6xl">Muito além<br /><em class="text-gold-light">da cor.</em></h2><div class="grid gap-px overflow-hidden border border-white/10 bg-white/10 sm:grid-cols-2">{benefits.map((benefit, index) => (<article class="benefit-cell bg-ink-soft p-7 sm:p-8" data-reveal style={`--reveal-delay:${index * 60}ms`}><span class="font-display text-lg italic text-gold">0{index + 1}</span><h3 class="mt-9 text-lg font-semibold text-white">{benefit.title}</h3><p class="mt-2 max-w-[30ch] text-sm leading-6 text-white/60">{benefit.copy}</p></article>))}</div></div></section>
+    <section class="border-b border-white/10 bg-ink-soft py-20 sm:py-28">
+      <div class="mx-auto grid max-w-7xl items-start gap-12 px-5 sm:px-8 lg:grid-cols-[.72fr_1.28fr]">
+        <h2 class="font-display text-5xl leading-[.9] tracking-[-0.03em] text-white sm:text-6xl">Muito além<br /><em class="text-gold-light">da cor.</em></h2>
+        <div class="grid sm:grid-cols-2">
+          {benefits.map((benefit, index) => (
+            <article class="benefit-cell border-t border-white/15 py-8 sm:px-8 sm:py-9 sm:even:border-l" data-reveal style={`--reveal-delay:${index * 60}ms`}>
+              <span class="font-display text-lg italic text-gold">0{index + 1}</span>
+              <h3 class="mt-8 text-lg font-semibold text-white">{benefit.title}</h3>
+              <p class="mt-2 max-w-[30ch] text-sm leading-6 text-white/75">{benefit.copy}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
 
     <section class="bg-sand py-20 text-ink sm:py-28"><div class="mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[.94fr_1.06fr]"><figure class="relative order-2 lg:order-1"><img src="/images/Processo_Bronzeamento.webp" alt="Mariana preparando uma sessão de bronzeamento natural" width="800" height="800" loading="lazy" decoding="async" class="aspect-[4/3] w-full object-cover" /><figcaption class="absolute bottom-0 right-0 max-w-[270px] bg-ink px-6 py-5 text-sm leading-6 text-white">Sua sessão acontece em um ambiente acolhedor, com atenção aos detalhes.</figcaption></figure><div class="order-1 max-w-xl lg:order-2"><Sparkles class="text-gold-dark" size={24} aria-hidden="true" /><h2 class="mt-6 font-display text-5xl leading-[.88] tracking-[-0.03em] sm:text-6xl">Beleza que respeita o seu ritmo.</h2><p class="mt-7 text-base leading-8 text-ink/70 sm:text-lg">Cada sessão é pensada para que você se sinta confortável, segura e saia com uma marquinha que combine com você.</p><ul class="mt-8 space-y-4 border-t border-ink/15 pt-7 text-sm font-medium text-ink/80"><li class="flex gap-3"><Check class="mt-0.5 shrink-0 text-gold-dark" size={17} aria-hidden="true" /> Protocolo orientado para o seu tom de pele</li><li class="flex gap-3"><Check class="mt-0.5 shrink-0 text-gold-dark" size={17} aria-hidden="true" /> Ambiente privativo, higiênico e acolhedor</li><li class="flex gap-3"><Check class="mt-0.5 shrink-0 text-gold-dark" size={17} aria-hidden="true" /> Cuidados pré e pós explicados sem complicação</li></ul></div></div></section>
 
