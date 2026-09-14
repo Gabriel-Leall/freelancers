@@ -1,0 +1,74 @@
+---
+import lucide from 'lucide-react';
+import Layout from '../layouts/Layout.astro';
+import { site, book } from '../lib/site';
+const { ArrowUpRight, ArrowRight, Menu, X, MapPin, AtSign, MessageCircle, Plus, Minus, CalendarDays } = lucide;
+const services = [
+  { name: 'Maquiagem', description: 'Da pele iluminada ao olhar marcante. Uma maquiagem pensada para a sua beleza e para a sua ocasião.', image: 'maquiagem-social', alt: 'Maquiagem com pele iluminada e batom rosado', booking: 'maquiagem' },
+  { name: 'Penteados', description: 'Presos, soltos e semipresos. O cuidado com cada detalhe para completar o seu momento.', image: 'penteado', alt: 'Penteado semipreso com torção e ondas definidas', booking: 'um penteado' },
+  { name: 'Sobrancelhas', description: 'Um desenho que respeita seus traços e realça a expressão natural do seu rosto.', image: 'sobrancelhas', alt: 'Detalhe de sobrancelhas desenhadas', booking: 'design de sobrancelhas' },
+];
+const gallery = [
+  { image: 'beleza-laura', label: 'Maquiagem & penteado', alt: 'Maquiagem delicada e penteado com ondas em cabelo loiro' },
+  { image: 'maquiagem-social', label: 'Beleza para celebrar', alt: 'Cliente com maquiagem social e cabelo preso' },
+  { image: 'maquiagem-criativa', label: 'Um olhar de personalidade', alt: 'Maquiagem criativa com brilho e aplicações ao redor dos olhos' },
+];
+const testimonials = [
+  { text: 'Desde 5 da manhã maquiada, já são 17:00 e a make continua intacta!', name: 'Ana Flavia' },
+  { text: 'A maquiagem ficou incrível! Até depois da dança ainda estava intacta, nem precisei retocar o batom. Amei demais.', name: 'Anne Louise' },
+];
+const faqs = [
+  { question: 'Como faço para agendar?', answer: 'Você pode escolher um horário pela agenda online ou conversar diretamente com a Laura pelo WhatsApp. Para eventos, conte a data e quais serviços deseja.' },
+  { question: 'Onde fica o estúdio?', answer: 'O atendimento acontece na Rua Rui Barbosa, 777, no bairro Junco, em Picos–PI. Na seção de contato você encontra o link para traçar a rota.' },
+  { question: 'Como consultar os valores?', answer: 'Os valores são informados no atendimento. Envie o serviço desejado e a ocasião pelo WhatsApp para conversar sobre as opções.' },
+];
+---
+<Layout>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#inicio" class="brand" aria-label="Laura Nayara, início"><span class="brand-name">Laura Nayara</span><span class="brand-caption">Beauty Studio</span></a>
+      <nav class="desktop-nav" aria-label="Navegação principal"><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#galeria">Galeria</a><a href="#depoimentos">Depoimentos</a><a href="#contato">Contato</a></nav>
+      <a href={site.booking} target="_blank" rel="noopener noreferrer" class="button header-cta">Agendar horário <ArrowUpRight size={16} aria-hidden="true" /></a>
+      <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu"><Menu size={23} aria-hidden="true" /></button>
+    </div>
+    <nav id="mobile-menu" class="mobile-nav" aria-label="Navegação pelo celular" hidden><a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#galeria">Galeria</a><a href="#depoimentos">Depoimentos</a><a href="#contato">Contato</a><a href={site.booking} target="_blank" rel="noopener noreferrer">Agendar horário <ArrowUpRight size={17} aria-hidden="true" /></a></nav>
+  </header>
+  <main id="conteudo">
+    <section id="inicio" class="hero container">
+      <div class="hero-copy">
+        <h1>Maquiagem, penteado e sobrancelhas para você se sentir <em>ainda mais linda.</em></h1>
+        <p>Realçar a sua beleza, respeitar a sua essência. Um cuidado feito de técnica, carinho e atenção a cada detalhe, em Picos–PI.</p>
+        <div class="hero-actions"><a class="button" href={site.booking} target="_blank" rel="noopener noreferrer">Agendar meu horário <ArrowUpRight size={18} aria-hidden="true" /></a><a class="text-link" href="#galeria">Conhecer o trabalho <ArrowRight size={17} aria-hidden="true" /></a></div>
+        <span class="hero-location"><MapPin size={15} aria-hidden="true" /> Beauty Studio · Picos, Piauí</span>
+      </div>
+      <figure class="hero-photo"><img src="/images/beleza-laura.webp" alt="Maquiagem e penteado com ondas realizados no estúdio Laura Nayara" width="1100" height="1481" fetchpriority="high" /><figcaption>Beleza que tem a sua essência.</figcaption></figure>
+    </section>
+    <div class="specialties"><div class="container"><span>Maquiagem</span><span class="specialty-divider" aria-hidden="true"></span><span>Penteados</span><span class="specialty-divider" aria-hidden="true"></span><span>Design de sobrancelhas</span></div></div>
+    <section id="sobre" class="section container about">
+      <div class="about-photo"><img src="/images/laura-nayara.webp" alt="Laura Nayara, profissional do Beauty Studio" width="766" height="956" loading="lazy" /><div class="signature" aria-hidden="true">Laura Nayara</div></div>
+      <div class="about-copy"><h2>A especialista<br />por trás do <em>seu momento.</em></h2><p>Sou Laura Nayara, maquiadora, penteadista e designer de sobrancelhas. Acredito na beleza que faz você se reconhecer no espelho — e gostar ainda mais do que vê.</p><p>Cada atendimento é pensado para realçar seus traços, ouvir o que você deseja e cuidar dos detalhes. Do dia a dia à ocasião especial, o seu momento merece esse carinho.</p><a href={book()} class="text-link" target="_blank" rel="noopener noreferrer">Vamos conversar sobre o seu momento <ArrowUpRight size={18} aria-hidden="true" /></a></div>
+    </section>
+    <section id="galeria" class="section gallery-section"><div class="container"><div class="section-heading"><h2>O meu trabalho.<br /><em>A sua beleza.</em></h2><p>Maquiagens e penteados que contam histórias.<br />Toque nas fotos para ver de perto.</p></div><div class="gallery-grid">{gallery.map((item) => <figure><button class="gallery-open" data-image={`/images/${item.image}.webp`} data-caption={item.alt} aria-label={`Ampliar: ${item.label}`}><img src={`/images/${item.image}.webp`} alt={item.alt} width="550" height="720" loading="lazy" /><span class="image-expand"><Plus size={22} aria-hidden="true" /></span></button><figcaption>{item.label}</figcaption></figure>)}</div><a href={site.instagram} class="text-link gallery-instagram" target="_blank" rel="noopener noreferrer"><AtSign size={18} aria-hidden="true" /> Mais momentos no Instagram <ArrowUpRight size={17} aria-hidden="true" /></a></div></section>
+    <section id="servicos" class="section services-section"><div class="container"><div class="section-heading"><h2>Para cada ocasião,<br /><em>um cuidado especial.</em></h2><p>Escolha o que combina com o seu momento.<br />Valores sob consulta.</p></div><div class="services-grid">{services.map(service => <article class="service"><img src={`/images/${service.image}.webp`} alt={service.alt} width="550" height="650" loading="lazy" /><h3>{service.name}</h3><p>{service.description}</p><a href={book(service.booking)} target="_blank" rel="noopener noreferrer" class="text-link">Quero agendar <ArrowUpRight size={17} aria-hidden="true" /><span class="sr-only"> {service.name}</span></a></article>)}</div></div></section>
+    <section id="depoimentos" class="section testimonials"><div class="container"><h2>O carinho que <em>volta.</em></h2><div class="quotes">{testimonials.map(item => <figure><span class="quote-mark" aria-hidden="true">“</span><blockquote>{item.text}</blockquote><figcaption>{item.name}<span>Cliente do estúdio</span></figcaption></figure>)}</div></div></section>
+    <section class="section container faq"><h2>Antes de reservar<br /><em>o seu momento.</em></h2><div>{faqs.map(faq => <details><summary>{faq.question}<Plus className="plus" size={18} aria-hidden="true" /><Minus className="minus" size={18} aria-hidden="true" /></summary><p>{faq.answer}</p></details>)}</div></section>
+    <section id="contato" class="section contact"><div class="container contact-grid"><div><h2>Vamos cuidar<br />da <em>sua beleza?</em></h2><p>Reserve um tempo para você.<br />Escolha seu horário e deixe o resto com a Laura.</p><a class="button" href={site.booking} target="_blank" rel="noopener noreferrer">Agendar meu horário <ArrowUpRight size={18} aria-hidden="true" /></a></div><div class="contact-details"><div><MapPin size={21} aria-hidden="true" /><div><h3>Te espero no estúdio</h3><p>{site.address}<br />CEP 64607-835</p><a href={site.maps} target="_blank" rel="noopener noreferrer" class="text-link">Como chegar <ArrowUpRight size={16} aria-hidden="true" /></a></div></div><div><MessageCircle size={21} aria-hidden="true" /><div><h3>Prefere conversar?</h3><a href={book()} class="contact-phone" target="_blank" rel="noopener noreferrer">{site.phoneLabel}</a><p>Atendimento pelo WhatsApp</p></div></div><div><AtSign size={21} aria-hidden="true" /><div><h3>Acompanhe por aqui</h3><a href={site.instagram} class="text-link" target="_blank" rel="noopener noreferrer">@laura.nayara <ArrowUpRight size={16} aria-hidden="true" /></a></div></div></div></div></section>
+  </main>
+  <footer><div class="container footer-top"><a href="#inicio" class="brand"><span class="brand-name">Laura Nayara</span><span class="brand-caption">Beauty Studio</span></a><p>Realçando a beleza.<br />Preservando a essência.</p><a href={site.instagram} aria-label="Instagram da Laura Nayara" target="_blank" rel="noopener noreferrer"><AtSign size={22} aria-hidden="true" /></a></div><div class="container footer-bottom"><span>© {new Date().getFullYear()} Laura Nayara Beauty Studio</span><span>Picos, Piauí</span></div></footer>
+  <a class="mobile-booking button" href={site.booking} target="_blank" rel="noopener noreferrer"><CalendarDays size={18} aria-hidden="true" /> Agendar meu horário <ArrowUpRight size={18} aria-hidden="true" /></a>
+  <dialog class="lightbox" aria-label="Foto ampliada"><button class="lightbox-close" aria-label="Fechar foto ampliada"><X size={24} aria-hidden="true" /></button><img src="/images/beleza-laura.webp" width="800" height="1000" alt="Maquiagem e penteado com ondas realizados no estúdio Laura Nayara" /><p></p></dialog>
+  <script>
+    const toggle = document.querySelector<HTMLButtonElement>('.menu-toggle');
+    const menu = document.querySelector<HTMLElement>('#mobile-menu');
+    function closeMenu() { if (!menu || !toggle) return; menu.hidden = true; toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Abrir menu'); }
+    toggle?.addEventListener('click', () => { if (!menu) return; const open = toggle.getAttribute('aria-expanded') !== 'true'; menu.hidden = !open; toggle.setAttribute('aria-expanded', String(open)); toggle.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu'); });
+    menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', event => { if (event.key === 'Escape' && menu && !menu.hidden) { closeMenu(); toggle?.focus(); } });
+    const dialog = document.querySelector<HTMLDialogElement>('.lightbox');
+    const photo = dialog?.querySelector('img');
+    const caption = dialog?.querySelector('p');
+    document.querySelectorAll<HTMLButtonElement>('.gallery-open').forEach(button => button.addEventListener('click', () => { if (!dialog || !photo || !caption) return; photo.src = button.dataset.image || ''; photo.alt = button.dataset.caption || ''; caption.textContent = photo.alt; dialog.showModal(); }));
+    dialog?.querySelector('button')?.addEventListener('click', () => dialog.close());
+    dialog?.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+  </script>
+</Layout>

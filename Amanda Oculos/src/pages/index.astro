@@ -1,0 +1,269 @@
+---
+import "../styles/global.css";
+
+const choices = [
+  {
+    title: "Leve e delicado",
+    description: "Armações discretas, com linhas finas e presença suave.",
+    image: "/images/armacao-classica.webp",
+  },
+  {
+    title: "Clássico e versátil",
+    description: "Modelos fáceis de combinar e feitos para acompanhar a rotina.",
+    image: "/images/oculos-cotidiano.webp",
+  },
+  {
+    title: "Marcante e colorido",
+    description: "Uma armação com personalidade para renovar o seu visual.",
+    image: "/images/amanda.webp",
+  },
+];
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta
+      name="description"
+      content="Amanda Óculos: uma escolha guiada para encontrar uma armação que acompanhe você."
+    />
+    <meta name="theme-color" content="#14110d" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Amanda Óculos | Veja do seu jeito</title>
+  </head>
+  <body>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__topline shell">
+          <a class="brand" href="#inicio" aria-label="Amanda Óculos, início">
+            <img src="/images/logo.webp" width="480" height="288" alt="Amanda Óculos" />
+          </a>
+
+          <nav class="navigation" aria-label="Navegação principal">
+            <a href="#escolher">Escolher</a>
+            <a href="#armacoes">Armações</a>
+            <a href="#atendimento">Atendimento</a>
+          </nav>
+
+          <a class="header-action" href="#escolher">
+            Encontrar o meu
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+        </div>
+
+        <div id="inicio" class="hero__content shell">
+          <div class="hero__copy">
+            <h1 id="hero-title">Óculos que combinam com o seu jeito.</h1>
+            <p class="hero__description">
+              Mais do que completar um visual, uma armação pode acompanhar sua rotina, destacar a sua presença e mudar a forma como você se enxerga.
+            </p>
+            <a class="button button--primary" href="#escolher">
+              Quero escolher meu óculos
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+
+          <div class="hero__art" aria-label="Pessoa usando óculos coloridos">
+            <div class="hero__art-note">Uma escolha que acompanha o seu olhar.</div>
+            <img
+              src="/images/amanda.webp"
+              width="740"
+              height="986"
+              alt="Pessoa sorridente usando óculos de armação rosa"
+              fetchpriority="high"
+            />
+            <span class="hero__art-orbit" aria-hidden="true"></span>
+          </div>
+        </div>
+      </section>
+
+      <section id="escolher" class="choice-section shell" aria-labelledby="choice-title">
+        <div class="choice-section__heading">
+          <h2 id="choice-title">Qual estilo de armação combina com você?</h2>
+          <p>Veja as opções e escolha uma para preparar seu atendimento.</p>
+        </div>
+
+        <div class="choice-list" data-choice-list role="group" aria-label="Estilo de armação desejado">
+          {choices.map((choice) => (
+            <button class="choice" type="button" aria-pressed="false" data-choice={choice.title}>
+              <span class="choice__image" aria-hidden="true">
+                <img src={choice.image} width="160" height="120" alt="" loading="lazy" />
+              </span>
+              <span class="choice__content">
+                <strong>{choice.title}</strong>
+                <span>{choice.description}</span>
+              </span>
+              <span class="choice__arrow" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none">
+                  <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+            </button>
+          ))}
+        </div>
+
+        <div class="choice-section__footer">
+          <p data-choice-message aria-live="polite">Escolha entre leve, clássico ou marcante para preparar seu atendimento.</p>
+          <button class="button button--dark" type="button" disabled data-choice-continue>
+            Continuar com esta escolha
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <section id="armacoes" class="story-section" aria-labelledby="story-title">
+        <div class="story-section__main shell">
+          <div class="story-section__copy">
+            <h2 id="story-title">Uma armação não precisa disputar atenção. Ela pode dar forma ao que já é seu.</h2>
+            <p>
+              Para uma reunião, uma caminhada demorada, uma tarde de leitura ou só para se reconhecer melhor no espelho: cada intenção pede uma escolha mais próxima de você.
+            </p>
+            <a class="text-link" href="#atendimento">
+              Começar pelo meu objetivo
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </div>
+          <figure class="story-section__image story-section__image--warm">
+            <img
+              src="/images/oculos-cotidiano.webp"
+              width="1100"
+              height="1100"
+              alt="Óculos de armação escura sobre uma mesa de madeira"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+
+        <div class="frame-strip shell">
+          <figure class="frame-strip__image">
+            <img
+              src="/images/armacao-classica.webp"
+              width="1100"
+              height="733"
+              alt="Armação de óculos preta e dourada em fundo claro"
+              loading="lazy"
+            />
+          </figure>
+          <div class="frame-strip__words">
+            <h3>O detalhe faz diferença</h3>
+            <p>
+              Linhas delicadas, presença marcante ou um novo ponto de cor: o que funciona é aquilo que você tem vontade de usar todos os dias.
+            </p>
+          </div>
+          <figure class="frame-strip__image frame-strip__image--case">
+            <img
+              src="/images/oculos-completo.webp"
+              width="1100"
+              height="733"
+              alt="Armação de óculos preta e dourada sobre um estojo"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </section>
+
+      <section id="atendimento" class="attendance" aria-labelledby="attendance-title">
+        <div class="attendance__backdrop" aria-hidden="true"></div>
+        <div class="attendance__inner shell">
+          <div class="attendance__heading">
+            <h2 id="attendance-title">Vamos começar pela escolha que você acabou de fazer.</h2>
+            <p>Abra o WhatsApp com a mensagem pronta e escolha a conversa da Amanda para iniciar o atendimento.</p>
+          </div>
+
+          <div class="attendance__panel">
+            <p class="attendance__status">Sua escolha</p>
+            <p class="attendance__selection" data-attendance-choice>Escolha: leve, clássico ou marcante.</p>
+            <a class="button button--primary" role="button" aria-disabled="true" data-choice-submit>
+              Abrir mensagem no WhatsApp
+              <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            <p class="attendance__notice" data-attendance-notice aria-live="polite">
+              Escolha um dos três estilos acima para continuar.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__inner shell">
+        <a class="footer__brand" href="#inicio" aria-label="Voltar ao início">
+          <img src="/images/logo.webp" width="480" height="288" alt="Amanda Óculos" loading="lazy" />
+        </a>
+        <p>Óculos para olhar e ser vista.</p>
+        <a href="#escolher">Começar a escolher</a>
+      </div>
+    </footer>
+
+    <script>
+      const choiceButtons = Array.from(document.querySelectorAll<HTMLButtonElement>("[data-choice]"));
+      const continueButton = document.querySelector<HTMLButtonElement>("[data-choice-continue]");
+      const submitButton = document.querySelector<HTMLAnchorElement>("[data-choice-submit]");
+      const choiceMessage = document.querySelector<HTMLElement>("[data-choice-message]");
+      const attendanceChoice = document.querySelector<HTMLElement>("[data-attendance-choice]");
+      const attendanceNotice = document.querySelector<HTMLElement>("[data-attendance-notice]");
+      const attendance = document.querySelector<HTMLElement>("#atendimento");
+
+      let selectedChoice = "";
+
+      const updateChoice = (choice: string) => {
+        selectedChoice = choice;
+
+        choiceButtons.forEach((button) => {
+          const isActive = button.dataset.choice === choice;
+          button.classList.toggle("is-selected", isActive);
+          button.setAttribute("aria-pressed", String(isActive));
+        });
+
+        continueButton?.removeAttribute("disabled");
+        const message = `Olá, Amanda! Quero escolher meus óculos. Meu ponto de partida é: ${choice}.`;
+        if (submitButton) {
+          submitButton.href = `https://wa.me/?text=${encodeURIComponent(message)}`;
+          submitButton.target = "_blank";
+          submitButton.rel = "noopener noreferrer";
+          submitButton.removeAttribute("aria-disabled");
+        }
+
+        if (choiceMessage) {
+          choiceMessage.textContent = `Você escolheu: ${choice}. Agora podemos seguir.`;
+        }
+
+        if (attendanceChoice) {
+          attendanceChoice.textContent = choice;
+        }
+
+        if (attendanceNotice) {
+          attendanceNotice.textContent = "Sua mensagem está pronta. Ao abrir o WhatsApp, escolha a conversa da Amanda.";
+        }
+      };
+
+      choiceButtons.forEach((button) => {
+        button.addEventListener("click", () => updateChoice(button.dataset.choice ?? ""));
+      });
+
+      continueButton?.addEventListener("click", () => {
+        attendance?.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+
+      submitButton?.addEventListener("click", () => {
+        if (!selectedChoice) {
+          return;
+        }
+        if (!attendanceNotice) return;
+        attendanceNotice.textContent = "WhatsApp aberto com a sua mensagem. Agora selecione a conversa da Amanda.";
+      });
+    </script>
+  </body>
+</html>
