@@ -1,0 +1,107 @@
+---
+const navLinks = [
+  { label: "Tratamentos", href: "#tratamentos" },
+  { label: "A clínica", href: "#clinica" },
+  { label: "Equipe", href: "#equipe" },
+  { label: "Depoimentos", href: "#depoimentos" },
+];
+---
+
+<div class="md:hidden">
+  <button
+    id="mobile-menu-btn"
+    type="button"
+    aria-label="Abrir menu de navegação"
+    aria-expanded="false"
+    class="p-2.5 text-elan-text hover:text-elan-green transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-elan-green rounded-lg cursor-pointer"
+  >
+    <!-- Hamburger icon -->
+    <svg
+      id="menu-icon-open"
+      class="w-6 h-6"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+      aria-hidden="true"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+
+    <!-- Close icon -->
+    <svg
+      id="menu-icon-close"
+      class="w-6 h-6 hidden"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2"
+      aria-hidden="true"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <div
+    id="mobile-menu-drawer"
+    class="fixed inset-x-0 bottom-0 top-[86px] z-40 bg-[#F5F0EA]/98 backdrop-blur-md px-6 py-8 flex flex-col justify-between border-t border-elan-border/60 overflow-y-auto hidden transition-all duration-200"
+  >
+    <nav class="flex flex-col space-y-6">
+      {
+        navLinks.map((link) => (
+          <a
+            href={link.href}
+            class="mobile-nav-link font-serif text-2xl text-elan-text hover:text-elan-green transition-colors py-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-elan-green rounded"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="pt-6 pb-2 border-t border-elan-border/50">
+      <a
+        href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20na%20%C3%89lan%20Est%C3%A9tica."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-nav-link inline-flex items-center justify-center w-full h-12 rounded-full text-xs font-sans font-semibold tracking-wider uppercase bg-elan-green text-white hover:bg-elan-dark transition-all duration-200 shadow-md active:scale-95 cursor-pointer"
+      >
+        Agendar Consulta
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const drawer = document.getElementById("mobile-menu-drawer");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+  const links = document.querySelectorAll(".mobile-nav-link");
+
+  function toggle(forcedState?: boolean) {
+    const isHidden = drawer?.classList.contains("hidden");
+    const open = forcedState !== undefined ? forcedState : isHidden;
+
+    if (open) {
+      drawer?.classList.remove("hidden");
+      iconOpen?.classList.add("hidden");
+      iconClose?.classList.remove("hidden");
+      btn?.setAttribute("aria-expanded", "true");
+      btn?.setAttribute("aria-label", "Fechar menu de navegação");
+      document.body.style.overflow = "hidden";
+    } else {
+      drawer?.classList.add("hidden");
+      iconOpen?.classList.remove("hidden");
+      iconClose?.classList.add("hidden");
+      btn?.setAttribute("aria-expanded", "false");
+      btn?.setAttribute("aria-label", "Abrir menu de navegação");
+      document.body.style.overflow = "";
+    }
+  }
+
+  btn?.addEventListener("click", () => toggle());
+  links.forEach((l) => l.addEventListener("click", () => toggle(false)));
+</script>

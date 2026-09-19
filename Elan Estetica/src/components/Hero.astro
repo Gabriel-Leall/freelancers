@@ -5,14 +5,22 @@
   id="hero-section"
   class="relative w-full min-h-[680px] md:min-h-[82vh] lg:min-h-[750px] flex items-center justify-center overflow-hidden bg-[#26231F]"
 >
-  <!-- Full-bleed background image -->
+  <!-- Full-bleed background image with responsive WebP -->
   <div class="absolute inset-0 w-full h-full hero-bg-container z-0">
-    <img
-      src="/images/hero-facial.jpg"
-      alt="Tratamento facial na Élan Estética"
-      class="hero-bg-img w-full h-full object-cover object-center"
-      loading="eager"
-    />
+    <picture>
+      <source media="(max-width: 768px)" srcset="/images/hero-facial-mobile.webp" type="image/webp" />
+      <source srcset="/images/hero-facial.webp" type="image/webp" />
+      <img
+        src="/images/hero-facial.jpg"
+        alt="Tratamento facial na Élan Estética"
+        class="hero-bg-img w-full h-full object-cover object-center"
+        loading="eager"
+        fetchpriority="high"
+        decoding="async"
+        width="1800"
+        height="1200"
+      />
+    </picture>
   </div>
 
   <!-- Soft luxury gradient overlay for pristine contrast while keeping photo vivid -->

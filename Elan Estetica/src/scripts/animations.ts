@@ -19,12 +19,7 @@ export async function initAnimations() {
     return;
   }
 
-  // 2. Aguarda carregamento das fontes para medição exata das linhas
-  if ("fonts" in document) {
-    await document.fonts.ready;
-  }
-
-  // 3. FOCAL MOMENT: HERO ORCHESTRATION (Oficial GSAP SplitText + Mask Reveal)
+  // 2. FOCAL MOMENT: HERO ORCHESTRATION (Executa imediatamente para LCP ultra-rápido)
   const heroSection = document.querySelector("#hero-section");
   if (heroSection) {
     const heroImage = heroSection.querySelector(".hero-bg-img") as HTMLElement | null;
@@ -33,18 +28,16 @@ export async function initAnimations() {
 
     const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    // Revelação suave da foto de fundo
+    // Foto de fundo: mantém opacidade 1 para LCP instantâneo no mobile
     if (heroImage) {
       heroTl.fromTo(
         heroImage,
         {
-          scale: 1.15,
-          opacity: 0.6,
+          scale: 1.06,
         },
         {
           scale: 1.0,
-          opacity: 1,
-          duration: 1.8,
+          duration: 1.4,
           ease: "power2.out",
         },
         0
