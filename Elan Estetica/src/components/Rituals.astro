@@ -1,0 +1,94 @@
+---
+const rituals = [
+  {
+    category: "01",
+    title: "Face",
+    description:
+      "Limpeza profunda, hidratação avançada e protocolos anti-idade desenhados exclusivamente para a sua pele.",
+    image: "/images/ritual-face.jpg",
+    alt: "Tratamento facial na Élan Estética",
+  },
+  {
+    category: "02",
+    title: "Corpo",
+    description:
+      "Drenagem linfática, massagens terapêuticas e remodelagem corporal com carinho, precisão e conforto.",
+    image: "/images/ritual-corpo.jpg",
+    alt: "Tratamento corporal na Élan Estética",
+  },
+  {
+    category: "03",
+    title: "Bem-estar",
+    description:
+      "Momentos de relaxamento profundo e alívio de tensões para desacelerar o ritmo e renovar sua energia.",
+    image: "/images/ritual-bemestar.jpg",
+    alt: "Sessão de bem-estar na Élan Estética",
+  },
+];
+---
+
+<section id="tratamentos" class="w-full py-20 md:py-28 bg-elan-bg">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 md:px-16">
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div class="max-w-xl">
+        <span class="text-[11px] font-sans font-bold tracking-[3px] uppercase text-elan-green/80 block mb-3">
+          Experiência Exclusiva
+        </span>
+        <!-- SplitText target -->
+        <h2 class="split-reveal font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-elan-text leading-[1.15]">
+          Rituais que revelam você.
+        </h2>
+      </div>
+      <p class="font-sans text-sm text-elan-muted max-w-xs font-light leading-relaxed">
+        Tratamentos personalizados para acompanhar cada fase do seu autocuidado.
+      </p>
+    </div>
+
+    <!-- Cards Grid with Stagger & Mask Reveal -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 fade-group">
+      {
+        rituals.map((ritual) => (
+          <div class="fade-item group flex flex-col bg-elan-sand/60 rounded-2xl overflow-hidden border border-elan-border/60 hover:shadow-lg transition-all duration-500">
+            <!-- Mask Reveal Container on each photo -->
+            <div class="relative w-full aspect-[4/3] overflow-hidden mask-reveal">
+              <img
+                src={ritual.image}
+                alt={ritual.alt}
+                loading="lazy"
+                decoding="async"
+                class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+              />
+              <span class="absolute top-4 left-4 bg-white/80 backdrop-blur-sm text-[11px] font-sans font-bold px-3 py-1 rounded-full text-elan-text">
+                {ritual.category}
+              </span>
+            </div>
+
+            <!-- Card Content -->
+            <div class="p-7 md:p-8 flex flex-col flex-grow justify-between">
+              <div>
+                <h3 class="font-serif text-2xl md:text-3xl font-normal text-elan-text mb-3 group-hover:text-elan-green transition-colors">
+                  {ritual.title}
+                </h3>
+                <p class="font-sans text-xs sm:text-sm text-elan-muted font-light leading-relaxed mb-6">
+                  {ritual.description}
+                </p>
+              </div>
+
+              <div class="pt-4 border-t border-elan-border/40 flex items-center justify-between">
+                <a
+                  href={`https://wa.me/5511999999999?text=${encodeURIComponent(`Olá! Gostaria de consultar sobre o ritual ${ritual.title} na Élan Estética.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="text-xs font-sans font-bold tracking-wider uppercase text-elan-green hover:text-elan-green-hover flex items-center gap-1.5 group-hover:translate-x-1 transition-transform cursor-pointer focus-visible:outline-none focus-visible:underline"
+                >
+                  Consultar ritual <span>&rarr;</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,0 +1,50 @@
+---
+const testimonials = [
+  {
+    quote:
+      "O meu momento de autocuidado mais esperado do mês. Saio sempre renovada, leve e com a pele visivelmente viçosa e saudável.",
+    author: "Mariana Souza",
+    role: "Cliente há 2 anos",
+  },
+  {
+    quote:
+      "Profissionais atenciosos e um espaço que transmite paz desde a recepção. Cada protocolo foi uma experiência restauradora para mim.",
+    author: "Camila Castro",
+    role: "Cliente há 1 ano",
+  },
+];
+---
+
+<section id="depoimentos" class="w-full py-20 md:py-28 bg-elan-bg">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 md:px-16">
+    <div class="max-w-xl mb-16">
+      <span class="text-[11px] font-sans font-bold tracking-[3px] uppercase text-elan-green/80 block mb-3">
+        Experiência Real
+      </span>
+      <!-- SplitText target -->
+      <h2 class="split-reveal font-serif text-3xl sm:text-4xl md:text-5xl font-normal text-elan-text leading-[1.15]">
+        O resultado é também sentir-se bem.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 fade-group">
+      {
+        testimonials.map((item) => (
+          <div class="fade-item flex flex-col justify-between p-8 sm:p-10 rounded-2xl bg-white/60 border border-elan-border/60 hover:bg-white transition-all duration-300 shadow-sm">
+            <p class="font-serif text-xl sm:text-2xl text-elan-text/90 italic font-normal leading-relaxed mb-8">
+              "{item.quote}"
+            </p>
+            <div class="pt-4 border-t border-elan-border/40">
+              <span class="font-sans text-xs font-bold uppercase tracking-wider text-elan-text block">
+                {item.author}
+              </span>
+              <span class="font-sans text-[11px] text-elan-muted font-light">
+                {item.role}
+              </span>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

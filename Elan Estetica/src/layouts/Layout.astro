@@ -1,0 +1,45 @@
+---
+import "@/styles/globals.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Élan Estética — Seu tempo de cuidar começa agora",
+  description = "Clínica de estética avançada com tratamentos personalizados para face, corpo e bem-estar em um ambiente acolhedor e exclusivo.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-elan-bg text-elan-text antialiased selection:bg-elan-green selection:text-white">
+    <slot />
+
+    <script>
+      import { initAnimations } from "@/scripts/animations";
+
+      // Initialize GSAP animations when document is ready
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", initAnimations);
+      } else {
+        initAnimations();
+      }
+    </script>
+  </body>
+</html>

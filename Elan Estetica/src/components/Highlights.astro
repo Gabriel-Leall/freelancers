@@ -1,0 +1,49 @@
+---
+import { HeartHandshake, Sparkles, ShieldCheck } from "lucide-react";
+
+const highlights = [
+  {
+    icon: HeartHandshake,
+    title: "Escuta atenta",
+    description:
+      "Dedicamos tempo para compreender sua rotina, desejos e histórico antes de desenhar qualquer protocolo.",
+  },
+  {
+    icon: Sparkles,
+    title: "Protocolos sob medida",
+    description:
+      "Combinações inteligentes e seguras de ativos dermatológicos e equipamentos certificados pela Anvisa.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Ambiente acolhedor",
+    description:
+      "Salas individuais com iluminação suave, aromas relaxantes e isolamento acústico para total privacidade.",
+  },
+];
+---
+
+<section class="w-full py-16 md:py-20 bg-elan-sand/50 border-b border-elan-border/50">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 md:px-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 fade-group">
+      {
+        highlights.map((item, idx) => {
+          const Icon = item.icon;
+          return (
+            <div class="fade-item flex flex-col p-6 rounded-2xl bg-elan-bg/70 border border-elan-border/40 hover:bg-elan-bg transition-all">
+              <div class="w-12 h-12 rounded-xl bg-elan-green/10 text-elan-green flex items-center justify-center mb-5">
+                <Icon className="w-5 h-5" />
+              </div>
+              <h3 class="font-serif text-2xl font-normal text-elan-text mb-2.5">
+                {item.title}
+              </h3>
+              <p class="font-sans text-xs sm:text-sm text-elan-muted font-light leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

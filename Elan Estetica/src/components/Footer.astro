@@ -1,0 +1,60 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="w-full bg-elan-dark text-white/80 py-16 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 sm:px-10 md:px-16">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+      <!-- Brand -->
+      <div class="md:col-span-2">
+        <span class="font-serif text-3xl font-bold tracking-[4px] text-white block mb-4">
+          ÉLAN
+        </span>
+        <p class="font-sans text-xs sm:text-sm text-white/60 font-light max-w-sm leading-relaxed mb-6">
+          Estética avançada e terapias de bem-estar focadas em harmonia, saúde e respeito à sua individualidade.
+        </p>
+        <span class="text-[11px] font-sans text-elan-nude tracking-wider uppercase">
+          CRM-SP 123.456 • RQE 78.910
+        </span>
+      </div>
+
+      <!-- Links -->
+      <div>
+        <h4 class="font-sans text-xs font-bold uppercase tracking-[2px] text-white mb-4">
+          Navegação
+        </h4>
+        <ul class="space-y-2.5 text-xs text-white/70 font-light">
+          <li><a href="#tratamentos" class="hover:text-white transition-colors">Tratamentos</a></li>
+          <li><a href="#clinica" class="hover:text-white transition-colors">A clínica</a></li>
+          <li><a href="#equipe" class="hover:text-white transition-colors">Corpo clínico</a></li>
+          <li><a href="#depoimentos" class="hover:text-white transition-colors">Depoimentos</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Hours -->
+      <div>
+        <h4 class="font-sans text-xs font-bold uppercase tracking-[2px] text-white mb-4">
+          Atendimento
+        </h4>
+        <p class="text-xs text-white/70 font-light leading-relaxed mb-3">
+          Segunda a Sexta: 08h às 20h<br />
+          Sábados: 09h às 15h
+        </p>
+        <p class="text-xs text-white/60 font-light">
+          Alameda dos Aromas, 420 — Jardins<br />
+          São Paulo, SP
+        </p>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-white/50 font-light gap-4">
+      <p>© {currentYear} Élan Estética Integrada. Todos os direitos reservados.</p>
+      <div class="flex space-x-6">
+        <a href="#" class="hover:text-white transition-colors">Privacidade</a>
+        <a href="#" class="hover:text-white transition-colors">Termos de Uso</a>
+        <a href="#" class="hover:text-white transition-colors">Instagram</a>
+      </div>
+    </div>
+  </div>
+</footer>
