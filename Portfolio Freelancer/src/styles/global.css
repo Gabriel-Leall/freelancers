@@ -362,12 +362,18 @@ footer[id] {
     animation-duration: 0.65s;
     animation-delay: 0.75s;
   }
-  .js.show-intro .hero-title { animation-delay: 0.85s; }
-  .js.show-intro .avatar-wrap { animation-delay: 0.95s; }
-  .js.show-intro .hero-project-1 { animation-delay: 1.03s; }
-  .js.show-intro .hero-project-2 { animation-delay: 1.15s; }
-  .js.show-intro .hero-project-3 { animation-delay: 1.27s; }
-  .js.show-intro .hero-project-4 { animation-delay: 1.39s; }
+  .js.show-intro .hero-title { animation-delay: 0.7s; }
+  .js.show-intro .avatar-wrap {
+    animation-delay: 0.65s;
+    animation-duration: 0.65s;
+  }
+  .js.show-intro .hero-project {
+    animation-duration: 0.8s;
+  }
+  .js.show-intro .hero-project-1 { animation-delay: 0.85s; }
+  .js.show-intro .hero-project-2 { animation-delay: 0.95s; }
+  .js.show-intro .hero-project-3 { animation-delay: 1.05s; }
+  .js.show-intro .hero-project-4 { animation-delay: 1.15s; }
 }
 .hero {
   padding: 118px var(--page) 0;
