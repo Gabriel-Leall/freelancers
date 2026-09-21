@@ -1,6 +1,7 @@
 import { gsap } from "gsap";
 
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+const compactViewport = window.matchMedia("(max-width: 900px)");
 const intro = document.querySelector<HTMLElement>(".intro");
 let showIntro = !reduced.matches && !location.hash;
 let scrollAnimationsStarted = false;
@@ -14,7 +15,7 @@ try {
 
 function startHeroEntrance() {
   if (reduced.matches || !document.querySelector(".hero")) return;
-  const delay = showIntro ? 1.55 : 0.08;
+  const delay = showIntro ? (compactViewport.matches ? 1.15 : 1.55) : 0.08;
 
   gsap.from(".hero-title", { yPercent: 20, opacity: 0, duration: 1, delay, ease: "power3.out" });
   gsap.from(".avatar-wrap", { y: 55, opacity: 0, duration: 1.1, delay: delay + 0.1, ease: "power3.out" });
@@ -100,7 +101,15 @@ if (intro && showIntro) {
     })
     .from(intro.querySelector("span"), { y: 25, opacity: 0, duration: 0.75, ease: "power3.out" })
     .from(intro.querySelector("small"), { opacity: 0, duration: 0.45 }, 0.3)
-    .to(intro, { yPercent: -100, duration: 0.8, ease: "power4.inOut" }, 1.25);
+    .to(
+      intro,
+      {
+        yPercent: -100,
+        duration: compactViewport.matches ? 0.7 : 0.8,
+        ease: "power4.inOut",
+      },
+      compactViewport.matches ? 0.95 : 1.25,
+    );
 } else {
   intro?.remove();
   scheduleScrollAnimations();
