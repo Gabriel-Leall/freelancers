@@ -17,7 +17,8 @@ const steps = [
       <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
       <span class="stage-note note-left">Seu negócio.<br/>Uma nova perspectiva.</span>
       <span class="stage-note note-right">Do primeiro rabisco<br/>ao site no ar. <span aria-hidden="true">↙</span></span>
-      {projects.map((p, i) => <a class={`hero-project hero-project-${i+1}`} href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`Abrir site ${p.name} em uma nova aba`}>
+      {projects.map((p, i) => <a class={`hero-project hero-project-${i+1}`} href={p.url} target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Visitar o site de {p.name} em uma nova guia.</span>
         <div class="mini-bar"><span>{p.short}</span><span aria-hidden="true">↗</span></div>
         <img src={p.thumbnail} width="640" height="400" alt={`Prévia do site ${p.name}`} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" fetchpriority={i === 0 ? 'high' : 'auto'}/>
         <span class="hero-project-label">Visitar site ↗</span>
@@ -32,7 +33,8 @@ const steps = [
     <div class="section-kicker"><span>01 — Projetos selecionados</span><span>Um olhar para o que posso criar.</span></div>
     <div class="work-heading"><h2>IDEIAS REAIS.<br/><span class="outline-type">NOVAS PRESENÇAS.</span></h2><p>Quatro negócios. Quatro possibilidades.<br/>Uma seleção de trabalhos<br/>de design e desenvolvimento.</p></div>
     <div class="project-list">{projects.map(p => <article class="project-card" style={`--project-color:${p.color};--project-ink:${p.ink}`}>
-      <a class="project-link" href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`Abrir site ${p.name} em uma nova aba`}>
+      <a class="project-link" href={p.url} target="_blank" rel="noopener noreferrer">
+        <span class="sr-only">Visitar o site de {p.name} em uma nova guia.</span>
         <div class="project-top"><span>{p.category}</span></div>
         <div class="project-presentation">
           <span class="project-watermark" aria-hidden="true">{p.short}</span>

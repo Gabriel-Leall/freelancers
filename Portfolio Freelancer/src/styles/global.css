@@ -109,6 +109,17 @@ footer[id] {
 .skip-link:focus {
   top: 20px;
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 .site-header {
   position: fixed;
   z-index: 40;
@@ -1001,7 +1012,7 @@ a:hover .round-arrow {
   position: relative;
   gap: 12px;
   font-size: 10px;
-  color: #76766f;
+  color: #6b6b63;
   border-top: 1px solid #c7c7bd;
   padding-top: 13px;
   line-height: 1.6;
