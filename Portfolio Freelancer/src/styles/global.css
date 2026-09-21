@@ -368,7 +368,7 @@ footer[id] {
 .js.show-intro .intro-letter {
   animation:
     intro-letter-in 0.7s cubic-bezier(.16,1,.3,1) calc(var(--intro-index) * 55ms) both,
-    intro-letter-out 0.58s cubic-bezier(.77,0,.18,1) calc(1.35s + var(--intro-index) * 55ms) both;
+    intro-letter-out 0.58s cubic-bezier(.77,0,.18,1) calc(1.35s + var(--intro-index) * 55ms) forwards;
 }
 .js.show-intro .hero-title {
   animation: hero-title-in 1s cubic-bezier(.16,1,.3,1) 2.25s both;
