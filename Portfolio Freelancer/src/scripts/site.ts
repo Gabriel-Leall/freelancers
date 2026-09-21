@@ -15,7 +15,7 @@ try {
 
 function startHeroEntrance() {
   if (reduced.matches || !document.querySelector(".hero")) return;
-  const delay = showIntro ? (compactViewport.matches ? 1.15 : 1.55) : 0.08;
+  const delay = showIntro ? (compactViewport.matches ? 0.85 : 1.55) : 0.08;
 
   gsap.from(".hero-title", { yPercent: 20, opacity: 0, duration: 1, delay, ease: "power3.out" });
   gsap.from(".avatar-wrap", { y: 55, opacity: 0, duration: 1.1, delay: delay + 0.1, ease: "power3.out" });
@@ -109,10 +109,10 @@ if (intro && showIntro) {
       intro,
       {
         yPercent: -100,
-        duration: compactViewport.matches ? 0.7 : 0.8,
+        duration: compactViewport.matches ? 0.65 : 0.8,
         ease: "power4.inOut",
       },
-      compactViewport.matches ? 0.95 : 1.25,
+      compactViewport.matches ? 0.75 : 1.25,
     );
 } else {
   intro?.remove();
