@@ -1,0 +1,69 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { projects, whatsapp } from '../../data/projects';
+const steps = [
+  { title: 'Conversa e Briefing', text: 'Primeiro, eu escuto. Vamos entender seu negócio, suas ideias e o que o seu site precisa fazer.' },
+  { title: 'Escopo e Proposta', text: 'Transformamos a conversa em um plano claro: o que será feito, como e em quais etapas.' },
+  { title: 'Protótipo e Aprovação', text: 'Você vê o seu site ganhar forma antes do desenvolvimento. Alinhamos a direção visual juntos.' },
+  { title: 'Desenvolvimento e Publicação', text: 'Com a direção aprovada, construo, ajusto para as telas e preparo tudo para o site ir ao ar.' },
+];
+---
+<Layout>
+  <div class="intro" aria-hidden="true"><span>Gabriel Leal<span class="intro-dot">.</span></span><small>Ideias que ganham presença.</small></div>
+  <section class="hero" aria-label="Apresentação">
+    <div class="hero-meta"><span>Design & desenvolvimento web</span><span>Para negócios com personalidade</span></div>
+    <h1 class="hero-title">GABRIEL LEAL<span class="title-star" aria-hidden="true">✳</span></h1>
+    <div class="hero-stage">
+      <div class="orbit orbit-one" aria-hidden="true"></div><div class="orbit orbit-two" aria-hidden="true"></div>
+      <span class="stage-note note-left">Seu negócio.<br/>Uma nova perspectiva.</span>
+      <span class="stage-note note-right">Do primeiro rabisco<br/>ao site no ar. <span aria-hidden="true">↙</span></span>
+      {projects.map((p, i) => <a class={`hero-project hero-project-${i+1}`} href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`Abrir site ${p.name} em uma nova aba`}>
+        <div class="mini-bar"><span>{p.short}</span><span aria-hidden="true">↗</span></div>
+        <img src={p.thumbnail} width="640" height="400" alt={`Prévia do site ${p.name}`} loading={i < 2 ? 'eager' : 'lazy'} decoding="async" fetchpriority={i === 0 ? 'high' : 'auto'}/>
+        <span class="hero-project-label">Visitar site ↗</span>
+      </a>)}
+      <div class="avatar-wrap"><img class="hero-avatar" src="/images/gabriel-avatar.webp" alt="Ilustração de Gabriel Leal, em pé, com roupa preta e uma das mãos aberta" width="1024" height="1536" fetchpriority="high"/></div>
+      <span class="avatar-caption">Prazer, Gabriel. <span aria-hidden="true">↖</span></span>
+    </div>
+    <div class="hero-bottom"><p>Crio sites que traduzem o seu negócio<br/><strong>em uma presença que faz sentido.</strong></p><a class="text-link" href="#projetos">Explore os projetos <span class="round-arrow" aria-hidden="true">↓</span></a><span class="hero-bottom-note">Landing pages.<br/>Sites institucionais. E boas ideias.</span></div>
+  </section>
+
+  <section id="projetos" class="work-section">
+    <div class="section-kicker"><span>01 — Projetos selecionados</span><span>Um olhar para o que posso criar.</span></div>
+    <div class="work-heading"><h2>IDEIAS REAIS.<br/><span class="outline-type">NOVAS PRESENÇAS.</span></h2><p>Quatro negócios. Quatro possibilidades.<br/>Uma seleção de trabalhos<br/>de design e desenvolvimento.</p></div>
+    <div class="project-list">{projects.map(p => <article class="project-card" style={`--project-color:${p.color};--project-ink:${p.ink}`}>
+      <a class="project-link" href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`Abrir site ${p.name} em uma nova aba`}>
+        <div class="project-top"><span>{p.category}</span></div>
+        <div class="project-presentation">
+          <span class="project-watermark" aria-hidden="true">{p.short}</span>
+          <div class="desktop-frame"><div class="browser-bar" aria-hidden="true"><span>● ● ●</span><span>{p.name}</span><span>↗</span></div><img src={p.image} width="1440" height="900" alt={`Página inicial do projeto ${p.name}`} loading="lazy"/></div>
+          <div class="phone-frame"><div class="phone-speaker" aria-hidden="true"></div><img src={p.mobile} width="390" height="780" alt={`Versão para celular do projeto ${p.name}`} loading="lazy"/></div>
+        </div>
+        <div class="project-bottom"><h3>{p.name}</h3><span class="project-cta">Visitar site <span class="round-arrow" aria-hidden="true">↗</span></span></div>
+      </a>
+    </article>)}</div>
+  </section>
+
+  <section id="processo" class="process-section">
+    <div class="process-pin">
+      <div class="section-kicker"><span>02 — Como trabalho</span><span>Uma conversa. Um plano. Um site.</span></div>
+      <div class="process-heading"><h2>DO “E SE...”<br/>AO <span class="outline-type">“TÁ NO AR”.</span></h2><p>Você acompanha.<br/>A ideia evolui.<br/>O site acontece.</p></div>
+      <div class="process-body">
+        <div class="process-copy"><div class="process-counter" aria-hidden="true"><span id="step-number">01</span><small>/ 04</small></div><div class="step-copy-stack">{steps.map((s,i) => <div class={`step-copy ${i===0?'is-active':''}`} data-step={i}><h3>{s.title}</h3><p>{s.text}</p></div>)}</div><span class="scroll-cue">Role para acompanhar o processo <span aria-hidden="true">↓</span></span></div>
+        <div class="process-scene" aria-hidden="true">
+          <span class="scene-coordinate">UM PROJETO, DO INÍCIO AO FIM</span>
+          <div class="scene-orbit"></div>
+          <div class="scene-panel scene-brief"><span class="panel-caption">01 / ESCUTAR & ENTENDER</span><div class="chat-message">Tenho uma ideia para o meu site<span>Você</span></div><div class="chat-message reply">Vamos dar forma a ela. <span>Gabriel ↗</span></div><div class="brief-note"><span>O ponto de partida</span><strong>Seu negócio.<br/>Seus objetivos.</strong><span class="scribble" aria-hidden="true">✳</span></div></div>
+          <div class="scene-panel scene-scope"><span class="panel-caption">02 / ORGANIZAR & ALINHAR</span><h4>Um plano.<br/>Tudo às claras.</h4><div class="scope-row"><span>✓</span> O que vamos construir</div><div class="scope-row"><span>✓</span> Etapas e entregas</div><div class="scope-row"><span>✓</span> Prazos combinados</div><span class="document-sign">Gabriel Leal <span>Proposta →</span></span></div>
+          <div class="scene-panel scene-design"><span class="panel-caption">03 / DESENHAR & APROVAR</span><div class="wire-nav"><b>Sua marca.</b><span>Menu ＋</span></div><div class="wire-content"><div><span class="wire-tag">UMA NOVA PRESENÇA</span><strong>Um site<br/>com a<br/>sua cara.</strong><span class="wire-button">Vamos conversar ↗</span></div><div class="wire-image"><span>✳</span></div></div><span class="design-cursor">↖ Gabriel</span><span class="approval-stamp">É isso! ✓</span></div>
+          <div class="scene-panel scene-launch"><div class="launch-bar"><span>● ● ●</span><span>lauranayara.com.br</span><span>↗</span></div><img src="/images/projects/laura-desktop.webp" width="1440" height="900" alt=""/><span class="live-badge"><i></i> Pronto para o mundo.</span></div>
+          <span class="scene-corner">DESIGN + DESENVOLVIMENTO</span>
+        </div>
+      </div>
+      <ol class="process-track">{steps.map((s,i)=><li class={i===0?'is-active':''}><span>0{i+1}</span><span>{s.title}</span><i></i></li>)}</ol>
+    </div>
+  </section>
+
+  <section id="sobre" class="about-section"><div class="section-kicker"><span>03 — Sobre mim</span><span>Quem está do outro lado da tela.</span></div><div class="about-body"><div class="about-mark" aria-hidden="true">GL<span>✳</span></div><div><h2>UMA PESSOA.<br/>DO INÍCIO AO FIM.</h2><p>Sou Gabriel Leal e crio sites para apresentar negócios com clareza e personalidade. Do briefing à publicação, você conversa diretamente comigo.</p><a href={whatsapp} class="text-link" target="_blank" rel="noopener noreferrer">Prazer. Vamos conversar? <span class="round-arrow" aria-hidden="true">↗</span></a></div></div></section>
+  <script>import '../../scripts/site';</script>
+</Layout>

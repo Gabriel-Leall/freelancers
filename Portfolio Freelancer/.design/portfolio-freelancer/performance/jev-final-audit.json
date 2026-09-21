@@ -1,0 +1,82 @@
+{
+  "model": "jev-1.13.0",
+  "answers": {
+    "remaining_priority": {
+      "type": "choice",
+      "choice": "smaller_avatar",
+      "confidence": 0.46,
+      "probabilities": {
+        "woff2_fonts": 0.4,
+        "remove_motion": 0.0,
+        "none": 0.0,
+        "smaller_avatar": 0.6
+      }
+    },
+    "release_readiness": {
+      "type": "noul",
+      "noul": 0.08
+    },
+    "post_change_risk": {
+      "type": "score",
+      "score": 0.89,
+      "confidence": 0.87,
+      "legend": {
+        "0": {
+          "description": "Low: external JS <=50 KB gzip, eager media <=120 KB, CSS <=15 KB, with no meaningful remaining delivery concern.",
+          "score": 0
+        },
+        "1": {
+          "description": "Moderate: critical assets are controlled, but font delivery or one remaining asset offers a meaningful optimization.",
+          "score": 1
+        },
+        "2": {
+          "description": "High: external JS >100 KB gzip or eager media >350 KB, with multiple material problems.",
+          "score": 2
+        },
+        "3": {
+          "description": "Severe: several megabytes critical or known render-blocking work.",
+          "score": 3
+        }
+      },
+      "probabilities": {
+        "0": 0.12,
+        "1": 0.87,
+        "2": 0.01,
+        "3": 0.0
+      }
+    },
+    "evidence_strength": {
+      "type": "score",
+      "score": 1.9,
+      "confidence": 0.9,
+      "legend": {
+        "0": {
+          "description": "Weak: subjective claims only.",
+          "score": 0
+        },
+        "1": {
+          "description": "Partial: a few sizes without route attribution.",
+          "score": 1
+        },
+        "2": {
+          "description": "Strong for route payload conclusions, limited for runtime and Core Web Vitals.",
+          "score": 2
+        },
+        "3": {
+          "description": "Conclusive: includes lab or field Core Web Vitals and CPU/resource traces.",
+          "score": 3
+        }
+      },
+      "probabilities": {
+        "0": 0.0,
+        "1": 0.09,
+        "2": 0.91,
+        "3": 0.0
+      }
+    }
+  },
+  "usage": {
+    "input_tokens": 1126,
+    "output_tokens": 105
+  }
+}
