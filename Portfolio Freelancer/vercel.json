@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/prototype",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/prototype/:path*",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
