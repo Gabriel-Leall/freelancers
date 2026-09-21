@@ -1,6 +1,6 @@
-# Gabriel Leal — protótipo do portfólio freelance
+# Gabriel Leal — portfólio freelance
 
-Protótipo visual navegável, em português, criado a partir do briefing aprovado. Implementado com Astro, Tailwind, uma primitiva shadcn/Radix e GSAP. Não é uma publicação em produção.
+Portfólio em português para apresentar o trabalho freelance de Gabriel Leal. Implementado com Astro, Tailwind, uma primitiva shadcn/Radix e GSAP.
 
 ## Abrir
 
@@ -23,7 +23,7 @@ bun run build
 
 - Avatar 2D personalizado, nome e quatro projetos na abertura.
 - Entrada breve por sessão, navegação que se compacta e menu em tela cheia.
-- Projetos com páginas próprias, imagens de desktop e celular, contexto e decisões.
+- Projetos com prévias fiéis das versões publicadas e links que abrem cada site em uma nova aba.
 - Cena de processo em quatro etapas, controlada pela rolagem.
 - Sobre curto e contato direto no WhatsApp.
 - Composição responsiva e alternativa sem pinagem para telas baixas ou movimento reduzido.
@@ -37,6 +37,6 @@ Os quatro trabalhos são apresentados como demonstrações para prospecção. N�
 - [Origem dos assets e prompts](.design/portfolio-freelancer/ASSET_SOURCES.md)
 - [Prévias](.design/portfolio-freelancer/previews/)
 
-## Limite da versão
+## Produção
 
-O objetivo desta versão é revisar composição, avatar, conteúdo e movimento. As URLs públicas definitivas das demonstrações não foram encontradas nos projetos consultados; os estudos estão completos dentro do protótipo, e o botão externo de visitar cada site deve ser conectado quando esses endereços estiverem confirmados. O protótipo usa `noindex` e não configura domínio, analytics ou hospedagem.
+A versão publicada está em [portfolio-freelancer-gules.vercel.app](https://portfolio-freelancer-gules.vercel.app/prototype/). O endereço definitivo pode ser configurado no futuro com a variável `PUBLIC_SITE_URL`.
