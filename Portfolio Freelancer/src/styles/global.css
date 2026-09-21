@@ -319,37 +319,35 @@ footer[id] {
   color: #fff;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  gap: 15px;
   pointer-events: none;
 }
 .intro.is-visible {
   display: flex;
 }
-.intro > span {
+.intro-word {
+  display: flex;
+  overflow: hidden;
   font-size: clamp(16px, 1.65vw, 25px);
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: lowercase;
 }
-.intro small {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+.intro-letter {
+  display: inline-block;
+  opacity: 0;
+  translate: 0 120%;
+  will-change: translate, opacity;
 }
-.intro-dot {
-  color: #989891;
-}
-@keyframes intro-name-in {
-  from { opacity: 0; letter-spacing: 0.22em; }
+@keyframes intro-letter-in {
+  from { opacity: 0; translate: 0 120%; }
   to { opacity: 1; translate: 0 0; }
 }
-@keyframes intro-small-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+@keyframes intro-letter-out {
+  from { opacity: 1; translate: 0 0; }
+  to { opacity: 0; translate: 0 120%; }
 }
 @keyframes intro-exit {
-  to { translate: 0 -100%; }
+  to { opacity: 0; visibility: hidden; }
 }
 @keyframes hero-title-in {
   from { opacity: 0; translate: 0 20%; }
@@ -365,27 +363,26 @@ footer[id] {
 }
 .js.show-intro .intro {
   display: flex;
-  animation: intro-exit 0.8s cubic-bezier(.77,0,.18,1) 1.25s both;
+  animation: intro-exit 0.2s linear 2.25s both;
 }
-.js.show-intro .intro > span {
-  animation: intro-name-in 0.75s cubic-bezier(.16,1,.3,1) both;
-}
-.js.show-intro .intro small {
-  animation: intro-small-in 0.45s ease-out 0.3s both;
+.js.show-intro .intro-letter {
+  animation:
+    intro-letter-in 0.7s cubic-bezier(.16,1,.3,1) calc(var(--intro-index) * 55ms) both,
+    intro-letter-out 0.58s cubic-bezier(.77,0,.18,1) calc(1.35s + var(--intro-index) * 55ms) both;
 }
 .js.show-intro .hero-title {
-  animation: hero-title-in 1s cubic-bezier(.16,1,.3,1) 1.55s both;
+  animation: hero-title-in 1s cubic-bezier(.16,1,.3,1) 2.25s both;
 }
 .js.show-intro .avatar-wrap {
-  animation: hero-avatar-in 1.1s cubic-bezier(.16,1,.3,1) 1.65s both;
+  animation: hero-avatar-in 1.1s cubic-bezier(.16,1,.3,1) 2.35s both;
 }
 .js.show-intro .hero-project {
   animation: hero-project-in 1s cubic-bezier(.16,1,.3,1) both;
 }
-.js.show-intro .hero-project-1 { animation-delay: 1.73s; }
-.js.show-intro .hero-project-2 { animation-delay: 1.85s; }
-.js.show-intro .hero-project-3 { animation-delay: 1.97s; }
-.js.show-intro .hero-project-4 { animation-delay: 2.09s; }
+.js.show-intro .hero-project-1 { animation-delay: 2.43s; }
+.js.show-intro .hero-project-2 { animation-delay: 2.55s; }
+.js.show-intro .hero-project-3 { animation-delay: 2.67s; }
+.js.show-intro .hero-project-4 { animation-delay: 2.79s; }
 .js:not(.show-intro):not(.intro-finished) .hero-title {
   animation: hero-title-in 0.7s cubic-bezier(.16,1,.3,1) 0.08s both;
 }

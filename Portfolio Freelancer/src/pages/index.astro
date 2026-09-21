@@ -7,9 +7,12 @@ const steps = [
   { title: 'Protótipo e Aprovação', text: 'Você vê o seu site ganhar forma antes do desenvolvimento. Alinhamos a direção visual juntos.' },
   { title: 'Desenvolvimento e Publicação', text: 'Com a direção aprovada, construo, ajusto para as telas e preparo tudo para o site ir ao ar.' },
 ];
+const introLetters = Array.from('gabriel leal');
 ---
 <Layout>
-  <div class="intro" aria-hidden="true"><span>gabriel leal</span></div>
+  <div class="intro" aria-hidden="true">
+    <span class="intro-word">{introLetters.map((letter, index) => <span class="intro-letter" style={`--intro-index: ${index}`}>{letter === ' ' ? '\u00a0' : letter}</span>)}</span>
+  </div>
   <section class="hero" aria-label="Apresentação">
     <div class="hero-meta"><span>Design & desenvolvimento web</span><span>Para negócios com personalidade</span></div>
     <h1 class="hero-title">GABRIEL LEAL<span class="title-star" aria-hidden="true">✳</span></h1>

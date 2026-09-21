@@ -79,7 +79,7 @@ function scheduleScrollAnimations() {
 }
 
 if (root.classList.contains("show-intro")) {
-  const duration = compactViewport.matches ? 1400 : 2050;
+  const duration = compactViewport.matches ? 1400 : 2900;
   window.setTimeout(() => {
     intro?.remove();
     root.classList.replace("show-intro", "intro-finished");
