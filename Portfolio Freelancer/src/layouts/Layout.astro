@@ -65,13 +65,13 @@ const structuredData = {
       const root = document.documentElement;
       root.classList.add('js');
       try {
-        const shouldShowIntro = !matchMedia('(prefers-reduced-motion: reduce)').matches && !location.hash && sessionStorage.getItem('gl-intro-seen') !== 'yes';
+        const shouldShowIntro = !matchMedia('(prefers-reduced-motion: reduce)').matches && !matchMedia('(max-width: 900px)').matches && !location.hash && sessionStorage.getItem('gl-intro-seen') !== 'yes';
         if (shouldShowIntro) {
           root.classList.add('show-intro');
           sessionStorage.setItem('gl-intro-seen', 'yes');
         }
       } catch {
-        if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !location.hash) root.classList.add('show-intro');
+        if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !matchMedia('(max-width: 900px)').matches && !location.hash) root.classList.add('show-intro');
       }
     </script>
   </head>
