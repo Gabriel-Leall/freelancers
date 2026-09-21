@@ -5,8 +5,13 @@ import { whatsapp } from '../data/projects';
 <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 <header class="site-header">
   <a href="/" class="wordmark" aria-label="Gabriel Leal, início"><span>Gabriel Leal</span><span class="brand-short" aria-hidden="true">GL.</span></a>
-  <Button variant="ghost" size="sm" id="menu-toggle" aria-controls="site-menu" aria-expanded="false"><span>Menu</span><span className="menu-symbol" aria-hidden="true">＋</span></Button>
-  <a class="nav-contact" href={whatsapp} target="_blank" rel="noopener noreferrer">Vamos conversar <span aria-hidden="true">↗</span></a>
+  <nav class="header-links" aria-label="Navegação principal">
+    <a href="/#projetos">Projetos</a>
+    <a href="/#processo">Como trabalho</a>
+    <a href="/#sobre">Sobre</a>
+  </nav>
+  <a class="nav-contact" href={whatsapp} target="_blank" rel="noopener noreferrer">Contato <span aria-hidden="true">↗</span></a>
+  <Button className="header-menu-trigger" variant="ghost" size="sm" id="menu-toggle" aria-controls="site-menu" aria-expanded="false"><span>Menu</span><span className="menu-symbol" aria-hidden="true">＋</span></Button>
 </header>
 <dialog id="site-menu" aria-labelledby="menu-title">
   <div class="menu-top"><a href="/">Gabriel Leal</a><span id="menu-title">Explore por aqui</span><button id="menu-close" aria-label="Fechar menu">Fechar <span aria-hidden="true">×</span></button></div>

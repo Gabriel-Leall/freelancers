@@ -102,7 +102,7 @@ footer[id] {
   top: -100px;
   left: 20px;
   z-index: 200;
-  background: #fff;
+  background: #fafafa;
   padding: 15px;
   border: 1px solid;
 }
@@ -133,7 +133,7 @@ footer[id] {
   max-width: 1800px;
   min-height: 64px;
   padding: 8px 0;
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(250, 250, 250, 0.94);
   border: 1px solid transparent;
   border-radius: 0;
   transition:
@@ -148,6 +148,36 @@ footer[id] {
   font-weight: 800;
   letter-spacing: -1.2px;
   white-space: nowrap;
+}
+.header-links {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.3vw, 38px);
+  font-size: 12px;
+  font-weight: 700;
+}
+.header-links a {
+  position: relative;
+  padding: 8px 0;
+}
+.header-links a::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 4px;
+  left: 0;
+  height: 1px;
+  background: currentColor;
+  scale: 0 1;
+  transform-origin: right;
+  transition: scale 0.25s ease;
+}
+.header-links a:hover::after {
+  scale: 1;
+  transform-origin: left;
+}
+.header-menu-trigger {
+  display: none;
 }
 .brand-short {
   display: none;
@@ -177,6 +207,13 @@ footer[id] {
 }
 .site-header.is-compact .brand-short {
   display: inline;
+}
+.site-header.is-compact .header-links,
+.site-header.is-compact .nav-contact {
+  display: none;
+}
+.site-header.is-compact .header-menu-trigger {
+  display: inline-flex;
 }
 #site-menu {
   margin: 0;
@@ -286,9 +323,10 @@ footer[id] {
   display: flex;
 }
 .intro > span {
-  font-size: clamp(36px, 6vw, 80px);
-  font-weight: 800;
-  letter-spacing: -0.06em;
+  font-size: clamp(16px, 1.65vw, 25px);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
 }
 .intro small {
   font-size: 11px;
@@ -299,7 +337,7 @@ footer[id] {
   color: #989891;
 }
 @keyframes intro-name-in {
-  from { opacity: 0; translate: 0 25px; }
+  from { opacity: 0; letter-spacing: 0.22em; }
   to { opacity: 1; translate: 0 0; }
 }
 @keyframes intro-small-in {
@@ -471,7 +509,7 @@ footer[id] {
   position: absolute;
   z-index: 3;
   width: 27%;
-  background: #fff;
+  background: #fafafa;
   border: 1px solid #aaa;
   box-shadow: 0 15px 35px #00000014;
   transition: box-shadow 0.2s;
@@ -534,7 +572,7 @@ footer[id] {
   z-index: 7;
   font-size: 10px;
   padding: 7px 10px;
-  background: #fff;
+  background: #fafafa;
   border: 1px solid #ddd;
   transform: rotate(-5deg);
 }
@@ -551,7 +589,7 @@ footer[id] {
   margin-top: 25px;
   position: relative;
   z-index: 6;
-  background: #fff;
+  background: #fafafa;
 }
 .hero-bottom p {
   line-height: 1.7;
@@ -691,7 +729,7 @@ a:hover .round-arrow {
   overflow: hidden;
   border: 1px solid #1d1d1d4a;
   border-radius: 9px;
-  background: #fff;
+  background: #fafafa;
   box-shadow: 0 28px 50px #201a2221;
 }
 .desktop-frame img {
@@ -888,7 +926,7 @@ a:hover .round-arrow {
 .scene-panel {
   position: absolute;
   width: min(360px, 84%);
-  background: #fff;
+  background: #fafafa;
   border: 1px solid #bdbdb3;
   box-shadow: 7px 8px 0 #ddddd4;
   padding: 20px;
@@ -1035,7 +1073,7 @@ a:hover .round-arrow {
   padding: 10px 17px;
   border: 1px solid #171717;
   border-radius: 50%;
-  background: #fff;
+  background: #fafafa;
   transform: rotate(15deg);
   font-size: 12px;
 }
@@ -1074,7 +1112,7 @@ a:hover .round-arrow {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #fff;
+  background: #fafafa;
 }
 .process-track {
   display: grid;
@@ -1431,6 +1469,12 @@ a:hover .round-arrow {
     min-height: 52px;
     width: calc(100% - 32px);
     padding: 0;
+  }
+  .header-links {
+    display: none;
+  }
+  .header-menu-trigger {
+    display: inline-flex;
   }
   .wordmark {
     font-size: 18px;
