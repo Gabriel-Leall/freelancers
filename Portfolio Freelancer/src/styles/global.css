@@ -21,7 +21,7 @@
   font-display: swap;
 }
 @theme inline {
-  --color-background: #fff;
+  --color-background: #fafafa;
   --color-foreground: #171717;
   --color-primary: #171717;
   --color-primary-foreground: #fff;
@@ -46,7 +46,7 @@ html {
 }
 body {
   margin: 0;
-  background: #fff;
+  background: #fafafa;
   color: var(--ink);
   font-family: Manrope, Arial, sans-serif;
   font-size: 14px;
