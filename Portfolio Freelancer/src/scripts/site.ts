@@ -1,32 +1,16 @@
-import { gsap } from "gsap";
-
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
 const compactViewport = window.matchMedia("(max-width: 900px)");
+const root = document.documentElement;
 const intro = document.querySelector<HTMLElement>(".intro");
-let showIntro = !reduced.matches && !location.hash;
 let scrollAnimationsStarted = false;
-
-try {
-  showIntro = showIntro && sessionStorage.getItem("gl-intro-seen") !== "yes";
-  if (intro) sessionStorage.setItem("gl-intro-seen", "yes");
-} catch {
-  /* Storage can be unavailable in private browsing. */
-}
-
-function startHeroEntrance() {
-  if (reduced.matches || !document.querySelector(".hero")) return;
-  const delay = showIntro ? (compactViewport.matches ? 0.85 : 1.55) : 0.08;
-
-  gsap.from(".hero-title", { yPercent: 20, opacity: 0, duration: 1, delay, ease: "power3.out" });
-  gsap.from(".avatar-wrap", { y: 55, opacity: 0, duration: 1.1, delay: delay + 0.1, ease: "power3.out" });
-  gsap.from(".hero-project", { y: 80, opacity: 0, scale: 0.85, duration: 1, stagger: 0.12, delay: delay + 0.18, ease: "power3.out" });
-}
 
 function startScrollAnimations() {
   if (reduced.matches || scrollAnimationsStarted) return;
   scrollAnimationsStarted = true;
 
-  void import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
+  void Promise.all([import("gsap"), import("gsap/ScrollTrigger")]).then(([core, plugin]) => {
+    const { gsap } = core;
+    const { ScrollTrigger } = plugin;
     gsap.registerPlugin(ScrollTrigger);
     const desktop = window.matchMedia("(min-width: 901px)").matches;
     const tall = window.matchMedia("(min-height: 720px)").matches;
@@ -94,29 +78,14 @@ function scheduleScrollAnimations() {
   addEventListener("scroll", startOnIntent, { once: true, passive: true });
 }
 
-if (intro && showIntro) {
-  intro.classList.add("is-visible");
-  gsap
-    .timeline({
-      onComplete: () => {
-        intro.remove();
-        scheduleScrollAnimations();
-      },
-    })
-    .from(intro.querySelector("span"), { y: 25, opacity: 0, duration: 0.75, ease: "power3.out" })
-    .from(intro.querySelector("small"), { opacity: 0, duration: 0.45 }, 0.3)
-    .to(
-      intro,
-      {
-        yPercent: -100,
-        duration: compactViewport.matches ? 0.65 : 0.8,
-        ease: "power4.inOut",
-      },
-      compactViewport.matches ? 0.75 : 1.25,
-    );
+if (root.classList.contains("show-intro")) {
+  const duration = compactViewport.matches ? 1400 : 2050;
+  window.setTimeout(() => {
+    intro?.remove();
+    root.classList.replace("show-intro", "intro-finished");
+    scheduleScrollAnimations();
+  }, duration);
 } else {
   intro?.remove();
   scheduleScrollAnimations();
 }
-
-startHeroEntrance();
