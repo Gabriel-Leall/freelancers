@@ -1,0 +1,28 @@
+# Gabriel Leal
+
+> Gabriel Leal cria sites institucionais e landing pages sob medida para negócios no Brasil.
+
+## Serviços
+
+- Direção visual e design web.
+- Landing pages e sites institucionais.
+- Desenvolvimento e publicação de sites responsivos.
+
+## Como trabalha
+
+1. Conversa e briefing.
+2. Escopo e proposta.
+3. Protótipo e aprovação.
+4. Desenvolvimento e publicação.
+
+## Projetos publicados
+
+- Élan Estética: https://elan-estetica-bice.vercel.app/
+- Laura Nayara: https://laura-nayara.vercel.app/
+- Amanda Óculos: https://amanda-oculos.vercel.app/
+- Dra. Jane: https://dra-saara-jane.vercel.app/
+
+## Contato
+
+- WhatsApp: https://wa.me/5589994102170
+- Portfólio: https://portfolio-freelancer-gules.vercel.app/

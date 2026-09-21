@@ -19,7 +19,7 @@ const steps = [
       <span class="stage-note note-right">Do primeiro rabisco<br/>ao site no ar. <span aria-hidden="true">↙</span></span>
       {projects.map((p, i) => <a class={`hero-project hero-project-${i+1}`} href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`Abrir site ${p.name} em uma nova aba`}>
         <div class="mini-bar"><span>{p.short}</span><span aria-hidden="true">↗</span></div>
-        <img src={p.thumbnail} width="640" height="400" alt={`Prévia do site ${p.name}`} loading={i < 2 ? 'eager' : 'lazy'} decoding="async" fetchpriority={i === 0 ? 'high' : 'auto'}/>
+        <img src={p.thumbnail} width="640" height="400" alt={`Prévia do site ${p.name}`} loading={i === 0 ? 'eager' : 'lazy'} decoding="async" fetchpriority={i === 0 ? 'high' : 'auto'}/>
         <span class="hero-project-label">Visitar site ↗</span>
       </a>)}
       <div class="avatar-wrap"><img class="hero-avatar" src="/images/gabriel-avatar.webp" alt="Ilustração de Gabriel Leal, em pé, com roupa preta e uma das mãos aberta" width="1024" height="1536" fetchpriority="high"/></div>

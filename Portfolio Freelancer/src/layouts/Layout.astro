@@ -4,27 +4,61 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 interface Props { title?: string; description?: string; ogImage?: string; }
 const {
-  title = 'Gabriel Leal — Sites com personalidade',
-  description = 'Design e desenvolvimento de sites para negócios que querem uma presença digital com personalidade. Conheça os projetos e vamos conversar.',
+  title = 'Criação de sites e landing pages | Gabriel Leal',
+  description = 'Gabriel Leal cria sites institucionais e landing pages com design e desenvolvimento sob medida para negócios que querem uma presença digital marcante.',
   ogImage = '/open-graph/home.png',
 } = Astro.props;
-const siteOrigin = import.meta.env.PUBLIC_SITE_URL || Astro.site?.origin || Astro.url.origin;
+const siteOrigin = Astro.site?.origin || import.meta.env.PUBLIC_SITE_URL || Astro.url.origin;
 const canonicalUrl = new URL(Astro.url.pathname, siteOrigin);
 const ogImageUrl = new URL(ogImage, siteOrigin);
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': `${siteOrigin}/#website`,
+      name: 'Gabriel Leal',
+      alternateName: 'Gabriel Leal — Sites com personalidade',
+      url: `${siteOrigin}/`,
+      inLanguage: 'pt-BR',
+      publisher: { '@id': `${siteOrigin}/#gabriel-leal` },
+    },
+    {
+      '@type': 'Person',
+      '@id': `${siteOrigin}/#gabriel-leal`,
+      name: 'Gabriel Leal',
+      url: `${siteOrigin}/`,
+      image: `${siteOrigin}/images/gabriel-avatar.webp`,
+      jobTitle: 'Designer e desenvolvedor web',
+      description,
+      knowsAbout: ['Criação de sites', 'Landing pages', 'Design web', 'Desenvolvimento web'],
+      contactPoint: {
+        '@type': 'ContactPoint',
+        contactType: 'atendimento comercial',
+        telephone: '+55-89-99410-2170',
+        areaServed: 'BR',
+        availableLanguage: 'pt-BR',
+      },
+    },
+  ],
+};
 ---
 <!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content={description}/><meta name="robots" content="noindex, nofollow"/>
+    <meta name="description" content={description}/><meta name="author" content="Gabriel Leal"/>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+    <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
     <link rel="canonical" href={canonicalUrl}/>
-    <meta property="og:locale" content="pt_BR"/><meta property="og:type" content="website"/>
+    <meta property="og:locale" content="pt_BR"/><meta property="og:type" content="website"/><meta property="og:site_name" content="Gabriel Leal"/>
     <meta property="og:title" content={title}/><meta property="og:description" content={description}/>
     <meta property="og:url" content={canonicalUrl}/><meta property="og:image" content={ogImageUrl}/>
     <meta property="og:image:width" content="1200"/><meta property="og:image:height" content="630"/>
     <meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content={title}/>
     <meta name="twitter:description" content={description}/><meta name="twitter:image" content={ogImageUrl}/>
     <meta name="theme-color" content="#ffffff"/><title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')}></script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
     <link rel="preload" href="/fonts/anton.ttf" as="font" type="font/ttf" crossorigin/>
     <script is:inline>document.documentElement.classList.add('js');</script>
