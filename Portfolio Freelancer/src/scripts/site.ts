@@ -87,7 +87,11 @@ function startScrollAnimations() {
 }
 
 function scheduleScrollAnimations() {
-  window.setTimeout(startScrollAnimations, showIntro ? 300 : 700);
+  const startOnIntent = () => {
+    removeEventListener("scroll", startOnIntent);
+    startScrollAnimations();
+  };
+  addEventListener("scroll", startOnIntent, { once: true, passive: true });
 }
 
 if (intro && showIntro) {
