@@ -23,11 +23,11 @@ if (intro && showIntro) {
     .from(intro.querySelector("span"), {
       y: 25,
       opacity: 0,
-      duration: 0.5,
+      duration: 0.8,
       ease: "power3.out",
     })
-    .from(intro.querySelector("small"), { opacity: 0, duration: 0.3 }, 0.15)
-    .to(intro, { yPercent: -100, duration: 0.7, ease: "power4.inOut" }, 0.65);
+    .from(intro.querySelector("small"), { opacity: 0, duration: 0.5 }, 0.35)
+    .to(intro, { yPercent: -100, duration: 1.15, ease: "power4.inOut" }, 1.55);
 } else intro?.remove();
 
 const mm = gsap.matchMedia();
@@ -41,18 +41,18 @@ mm.add(
     const { motion, desktop, tall } = ctx.conditions!;
     if (!motion) return;
     if (document.querySelector(".hero")) {
-      const delay = showIntro ? 0.95 : 0.05;
+      const delay = showIntro ? 2.35 : 0.08;
       gsap.from(".hero-title", {
         yPercent: 20,
         opacity: 0,
-        duration: 0.85,
+        duration: 1.15,
         delay,
         ease: "power3.out",
       });
       gsap.from(".avatar-wrap", {
         y: 55,
         opacity: 0,
-        duration: 0.95,
+        duration: 1.2,
         delay: delay + 0.12,
         ease: "power3.out",
       });
@@ -60,8 +60,8 @@ mm.add(
         y: 80,
         opacity: 0,
         scale: 0.85,
-        duration: 0.9,
-        stagger: 0.08,
+        duration: 1.15,
+        stagger: 0.14,
         delay: delay + 0.2,
         ease: "power3.out",
       });

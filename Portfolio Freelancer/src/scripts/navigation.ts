@@ -65,7 +65,7 @@ dialog?.addEventListener('cancel', (event) => {
   event.preventDefault();
   closeMenu();
 });
-dialog?.querySelectorAll<HTMLAnchorElement>('a[href^="/prototype/"]').forEach((link) => {
+dialog?.querySelectorAll<HTMLAnchorElement>('a[href^="/#"]').forEach((link) => {
   link.addEventListener('click', (event) => {
     event.preventDefault();
     closeMenu(link.href);

@@ -10,7 +10,7 @@ Depois de instalar as dependências com `bun install`, execute:
 bun run dev --background --host 127.0.0.1 --port 4340
 ```
 
-Abra http://127.0.0.1:4340/prototype/.
+Abra http://127.0.0.1:4340/.
 
 ```powershell
 bun run astro dev status
@@ -39,4 +39,4 @@ Os quatro trabalhos são apresentados como demonstrações para prospecção. N�
 
 ## Produção
 
-A versão publicada está em [portfolio-freelancer-gules.vercel.app](https://portfolio-freelancer-gules.vercel.app/prototype/). O endereço definitivo pode ser configurado no futuro com a variável `PUBLIC_SITE_URL`.
+A versão publicada está em [portfolio-freelancer-gules.vercel.app](https://portfolio-freelancer-gules.vercel.app/). O endereço definitivo pode ser configurado no futuro com a variável `PUBLIC_SITE_URL`.
